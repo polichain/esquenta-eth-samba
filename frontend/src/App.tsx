@@ -1,4 +1,5 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi";
+import Contract from "./Contract";
 
 function App() {
   const account = useAccount();
@@ -34,6 +35,10 @@ function App() {
         ))}
         <div>{status}</div>
         <div>{error?.message}</div>
+      </div>
+      <div>
+        <h2>Contract</h2>
+        <Contract />
       </div>
     </>
   );

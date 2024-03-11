@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "biome check .",
+    "lint": "npx eslint src/**.tsx",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,12 +17,15 @@
     "wagmi": "^2.5.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.1.2",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.1.0",
     "@wagmi/cli": "latest",
     "buffer": "^6.0.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9"
   }
