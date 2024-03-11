@@ -1,17 +1,18 @@
 import { http, createConfig } from "wagmi";
-import { mainnet, sepolia } from "wagmi/chains";
-import { coinbaseWallet, injected, walletConnect } from "wagmi/connectors";
+import { hardhat } from "wagmi/chains";
 
 export const config = createConfig({
-  chains: [mainnet, sepolia],
+  // chains: [mainnet, sepolia, hardhat],
+  chains: [hardhat],
   connectors: [
-    injected(),
-    coinbaseWallet({ appName: "Create Wagmi" }),
-    walletConnect({ projectId: import.meta.env.VITE_WC_PROJECT_ID }),
+    // injected(),
+    // coinbaseWallet({ appName: "Create Wagmi" }),
+    // walletConnect({ projectId: import.meta.env.VITE_WC_PROJECT_ID }),
   ],
   transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
+    // [mainnet.id]: http(),
+    // [sepolia.id]: http(),
+    [hardhat.id]: http(),
   },
 });
 
