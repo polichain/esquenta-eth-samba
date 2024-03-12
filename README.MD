@@ -1,5 +1,7 @@
 # Template para o Ethereum 2024
 
+[Visite o site](https://esquenta-eth-samba.pages.dev/)
+
 Este projeto divide-se em duas partes: a primeira é o `hardhat`, que envolve o desenvolvimento do contrato, e a segunda, é o `frontend`, construído usando `React`.
 
 A conexão entre essas duas partes é o grande desafio. Para isso, utilizei a biblioteca `wagmi` e o comando `wagmi-cli` para auxiliar nas chamadas ao contrato.
