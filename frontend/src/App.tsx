@@ -1,10 +1,16 @@
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount, useConnect, useDisconnect, useSwitchChain } from "wagmi";
+import { hardhat, sepolia } from "wagmi/chains";
 import Contract from "./Contract";
+
+const CHAIN_ID = import.meta.env.DEV ? hardhat.id : sepolia.id;
 
 function App() {
   const account = useAccount();
   const { connectors, connect, status, error } = useConnect();
+  const { switchChain } = useSwitchChain();
   const { disconnect } = useDisconnect();
+
+  const isCorrectChain = CHAIN_ID === account.chainId;
 
   return (
     <>
@@ -38,7 +44,13 @@ function App() {
       </div>
       <div>
         <h2>Contract</h2>
-        <Contract />
+        {isCorrectChain ? (
+          <Contract />
+        ) : (
+          <button type="button" onClick={() => switchChain({ chainId: CHAIN_ID })}>
+            Switch chain
+          </button>
+        )}
       </div>
     </>
   );
